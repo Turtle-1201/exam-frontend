@@ -12,7 +12,7 @@ export default function Show() {
   const [post, setPost] = useState(null);
 
   async function getPost() {
-    const res = await fetch(`${API_URL}/api/posts/${id}`);
+    const res = await fetch(`${API_URL}api/posts/${id}`);
     const data = await res.json();
     console.log("showdata", data);
 

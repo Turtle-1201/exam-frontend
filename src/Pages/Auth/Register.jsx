@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AppContext } from "../../Context/AppContext";
+const API_URL = import.meta.env.VITE_API_URL;
 
 export default function Register() {
   const { setToken } = useContext(AppContext);
@@ -17,7 +18,7 @@ export default function Register() {
 
   async function handleRegister(e) {
     e.preventDefault();
-    const res = await fetch("/api/register", {
+    const res = await fetch(`${API_URL}/api/register`, {
       method: "post",
       body: JSON.stringify(formData),
     });

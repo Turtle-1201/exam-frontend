@@ -87,7 +87,7 @@ export default function Register() {
           />
         </div>
 
-        <button className="primary-btn">Register</button>
+        <button className="primary-btn">Registers</button>
       </form>
     </>
   );

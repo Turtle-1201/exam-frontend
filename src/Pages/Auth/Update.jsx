@@ -19,6 +19,8 @@ export default function Update() {
     const res = await fetch(`/api/show-user/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+        Accept: "application/json",
       },
     });
 

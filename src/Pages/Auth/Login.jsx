@@ -20,6 +20,10 @@ export default function Login() {
     e.preventDefault();
     const res = await fetch(`${API_URL}/api/login`, {
       method: "post",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
       body: JSON.stringify(formData),
     });
 

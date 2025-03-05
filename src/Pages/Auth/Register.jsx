@@ -20,7 +20,10 @@ export default function Register() {
     e.preventDefault();
     const res = await fetch(`${API_URL}/api/register`, {
       method: "post",
-      Accept: "application/json",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
       // body: JSON.stringify(formData),
       body: JSON.stringify({
         name: "test",

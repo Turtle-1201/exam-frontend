@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 export default function Home() {
   const [posts, setPosts] = useState([]);
 
   async function getPosts() {
-    const res = await fetch("/api/posts");
+    const res = await fetch(`${API_URL}/api/posts`);
     const data = await res.json();
 
     console.log("data", data);

@@ -1,6 +1,7 @@
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AppContext } from "../Context/AppContext";
+const API_URL = import.meta.env.VITE_API_URL;
 
 export default function Layout() {
   const { user, token, setUser, setToken } = useContext(AppContext);
@@ -9,7 +10,7 @@ export default function Layout() {
   async function handleLogout(e) {
     e.preventDefault();
 
-    const res = await fetch("/api/logout", {
+    const res = await fetch(`${API_URL}/api/logout`, {
       method: "post",
       headers: {
         Authorization: `Bearer ${token}`,

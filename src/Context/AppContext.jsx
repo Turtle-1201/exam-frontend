@@ -2,14 +2,18 @@ import { createContext, useEffect, useState } from "react";
 
 export const AppContext = createContext();
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 export default function AppProvider({ children }) {
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [user, setUser] = useState(null);
 
   async function getUser() {
-    const res = await fetch("/api/user", {
+    const res = await fetch(`${API_URL}/api/user`, {
       headers: {
         Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+        Accept: "application/json",
       },
     });
     const data = await res.json();

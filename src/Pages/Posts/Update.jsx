@@ -41,6 +41,8 @@ export default function Update() {
       method: "put",
       headers: {
         Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+        Accept: "application/json",
       },
       body: JSON.stringify(formData),
     });

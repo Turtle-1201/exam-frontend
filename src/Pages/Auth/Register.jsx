@@ -20,7 +20,13 @@ export default function Register() {
     e.preventDefault();
     const res = await fetch(`${API_URL}/api/register`, {
       method: "post",
-      body: JSON.stringify(formData),
+      // body: JSON.stringify(formData),
+      body: JSON.stringify({
+        name: "test",
+        email: "test@example.com",
+        password: "123",
+        password_confirmation: "123",
+      }),
     });
 
     const data = await res.json();

@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { AppContext } from "../../Context/AppContext";
 import { useNavigate } from "react-router-dom";
+const API_URL = import.meta.env.VITE_API_URL;
 
 export default function Create() {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ export default function Create() {
   async function handleCreate(e) {
     e.preventDefault();
 
-    const res = await fetch("/api/posts", {
+    const res = await fetch(`${API_URL}/api/posts`, {
       method: "post",
       headers: {
         Authorization: `Bearer ${token}`,

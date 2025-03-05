@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../Context/AppContext";
 import { useNavigate, useParams } from "react-router-dom";
+const API_URL = import.meta.env.VITE_API_URL;
 
 export default function Update() {
   const { id } = useParams();
@@ -13,12 +14,12 @@ export default function Update() {
     // body: "",
   });
 
-  console.log("formadata", formData);
+  // console.log("formadata", formData);
 
   const [errors, setErrors] = useState({});
 
   async function getPost() {
-    const res = await fetch(`/api/posts/${id}`);
+    const res = await fetch(`${API_URL}/api/posts/${id}`);
     const data = await res.json();
 
     if (res.ok) {
@@ -36,7 +37,7 @@ export default function Update() {
   async function handleUpdate(e) {
     e.preventDefault();
 
-    const res = await fetch(`/api/posts/${id}`, {
+    const res = await fetch(`${API_URL}/api/posts/${id}`, {
       method: "put",
       headers: {
         Authorization: `Bearer ${token}`,

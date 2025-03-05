@@ -2,6 +2,8 @@ import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../Context/AppContext";
 import { useNavigate, useParams } from "react-router-dom";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 export default function Update() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -16,7 +18,7 @@ export default function Update() {
   const [post, setPost] = useState(null);
 
   async function getPost() {
-    const res = await fetch(`/api/show-user/${id}`, {
+    const res = await fetch(`${API_URL}/api/show-user/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
@@ -41,7 +43,7 @@ export default function Update() {
   async function handleUpdate(e) {
     e.preventDefault();
 
-    const res = await fetch(`/api/update-user`, {
+    const res = await fetch(`${API_URL}/api/update-user`, {
       method: "PUT",
       headers: {
         Authorization: `Bearer ${token}`,
